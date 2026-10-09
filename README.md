@@ -8,15 +8,21 @@ An independent, AI-generated research draft prepared with Codex. We construct an
 
 For $a,b\ge1$, put $u=\min(a,b)$ and $v=\max(a,b)$. Define
 
-$$P_*(a,b)=\left(\frac{3u-1}{2}\right)^{1/3}\left(v+\frac{u-1}{2}\right).$$
+```math
+P_*(a,b)=\left(\frac{3u-1}{2}\right)^{1/3}\left(v+\frac{u-1}{2}\right).
+```
 
 The proof shows positivity, symmetry, monotonicity, separate concavity, the boundary value $P_*(1,b)=b$, shifted tripling, and the rank envelope at $t=3/4$:
 
-$$P_*(a,3h+a-1)\ge3P_*(a,h),\qquad P_*(a,b)\le(a+b-1)^{4/3}.$$
+```math
+P_*(a,3h+a-1)\ge3P_*(a,h),\qquad P_*(a,b)\le(a+b-1)^{4/3}.
+```
 
 Yet its diagonal grows only as
 
-$$P_*(a,a)=\left(\frac{3a-1}{2}\right)^{4/3}=\Theta(a^{4/3}).$$
+```math
+P_*(a,a)=\left(\frac{3a-1}{2}\right)^{4/3}=\Theta(a^{4/3}).
+```
 
 Thus those abstract constraints alone cannot exclude $t=3/4$ or force a larger diagonal power.
 
@@ -24,15 +30,21 @@ Thus those abstract constraints alone cannot exclude $t=3/4$ or force a larger d
 
 Suppose $C(a,B)$ degenerates to $s$ standard polynomial-multiplication blocks $C(a,h_i)$ sharing the first leg, with independent second and third legs. Allow an exchange of those two legs in each block, but no auxiliary output factors. Counting the two spaces forces
 
-$$B\ge\sum_i h_i+\lfloor s/2\rfloor(a-1).$$
+```math
+B\ge\sum_i h_i+\lfloor s/2\rfloor(a-1).
+```
 
 Using a common probability vector across the six permuted characters, the source's entropy inequality yields the symmetrized consequence
 
-$$P(a,B)\ge\sum_iP(a,h_i).$$
+```math
+P(a,B)\ge\sum_iP(a,h_i).
+```
 
 The profile above satisfies every such consequence. Indeed, writing $d=(a-1)/2$ and $L=((3a-1)/2)^{1/3}$ gives $P_*(a,h)\le L(h+d)$, with equality for $h\ge a$. The needed dominance reduces, after cubing positive quantities, to
 
-$$A(A+2H)^3-H(2A+H)^3=(A-H)^3(A+H)\ge0\qquad(A\ge H).$$
+```math
+A(A+2H)^3-H(2A+H)^3=(A-H)^3(A+H)\ge0\qquad(A\ge H).
+```
 
 The dimension bound then implies the desired sum inequality. See [proof.tex](proof.tex) for both complete analytic arguments.
 
