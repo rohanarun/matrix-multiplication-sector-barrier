@@ -54,5 +54,31 @@ class ProfileProofTests(unittest.TestCase):
         # counterexample guards against silently extending the claim.
         self.assertLess(cube(2,3*2),27*cube(2,2))
 
+    def test_exact_sector_saturation_and_parity(self):
+        # In this family all radicals share the positive factor L, so
+        # cubing compares the actual equality exactly with rational numbers.
+        for a in range(1,20):
+            d=Q(a-1,2)
+            Lcube=Q(3*a-1,2)
+            for blocks in range(2,16):
+                lengths=[a+i for i in range(blocks)]
+                B=sum(lengths)+(blocks//2)*(a-1)
+                sum_coefficient=sum(Q(h)+d for h in lengths)
+                gap_coefficient=Q(B)+d-sum_coefficient
+                expected=0 if blocks%2 else d
+                self.assertEqual(gap_coefficient,expected)
+                self.assertEqual(cube(a,B),Lcube*(sum_coefficient+expected)**3)
+                if blocks%2 or a==1:
+                    self.assertEqual(cube(a,B),Lcube*sum_coefficient**3)
+                else:
+                    self.assertGreater(cube(a,B),Lcube*sum_coefficient**3)
+                self.assertGreater(cube(a,B+1),cube(a,B))
+
+    def test_short_sector_deficit_is_strict(self):
+        for a in range(2,30):
+            for h in range(1,a):
+                d=Q(a-1,2)
+                self.assertLess(cube(a,h),Q(3*a-1,2)*(h+d)**3)
+
 
 if __name__=='__main__':unittest.main()

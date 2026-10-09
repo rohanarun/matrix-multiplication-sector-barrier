@@ -50,6 +50,23 @@ The dimension bound then implies the desired sum inequality. See [proof.tex](pro
 
 The obstruction leaves open new block types, auxiliary factors, stronger tensor identities, and information retained before symmetrization. It does not rule out improving the actual matrix-multiplication exponent.
 
+## Exact equality cases and parity slack
+
+The profile's sector gap has a complete decomposition. Let `d=(a−1)/2`, `L=((3a−1)/2)^(1/3)`, and `B_min=sum(h_i)+2 floor(s/2)d`. For `s≥2` and `B≥B_min`,
+
+```math
+\begin{aligned}
+P_*(a,B)-\sum_iP_*(a,h_i)
+&=L(B-B_{\min})\\
+&\quad+L(2\lfloor s/2\rfloor-s+1)d\\
+&\quad+\sum_i[L(h_i+d)-P_*(a,h_i)].
+\end{aligned}
+```
+
+Every term is nonnegative. For `a>1`, odd sector counts attain equality exactly at the minimum dimension with every length at least `a`. Even sector counts have gap at least `Ld`, attained under the same conditions. A shorter sector adds a strictly positive deficit. For `a=1`, both parities give equality exactly when `B=sum(h_i)`.
+
+The added proof and exact rational tests classify saturation within the abstract constraints. Dimension feasibility alone does not construct a tensor degeneration.
+
 ## Reproduce
 
 Use Python 3.11 or 3.12:
@@ -67,9 +84,9 @@ The full argument is in [proof.tex](proof.tex), which has been compiled successf
 
 ## What the tests establish
 
-Five tests check the symbolic derivatives and their matching at the diagonal, 10,000 exact rational cube comparisons for tripling and the rank envelope, the dominance identity, finite sector-dimension cases and unequal-length tuples, and a counterexample to incorrectly omitting the additive shift in tripling.
+Seven tests check the symbolic derivatives and their matching at the diagonal, 10,000 exact rational cube comparisons for tripling and the rank envelope, the dominance identity, finite sector-dimension cases and unequal-length tuples, and a counterexample to incorrectly omitting the additive shift in tripling.
 
-No floating-point cube roots are used. Finite tests supplement the all-parameter analytic proofs; they are not an asymptotic extrapolation or a test of tensor realizability.
+The new cases check exact odd-sector saturation, even-sector slack, and the strict deficit for short sectors. No floating-point cube roots are used. Finite tests supplement the all-parameter analytic proofs; they are not an asymptotic extrapolation or a test of tensor realizability.
 
 ## Original source
 
