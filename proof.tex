@@ -126,6 +126,32 @@ tensor identities, and stronger information retained before symmetrization.
 No improved matrix-multiplication exponent is claimed.
 
 
+\section{Exact saturation and parity slack}
+The sector barrier also has an explicit equality classification.
+Let $s\ge2$, $a\ge1$, $d=(a-1)/2$, $L=((3a-1)/2)^{1/3}$ and
+$B_{\min}=\sum_i h_i+2\lfloor s/2\rfloor d$. For $B\ge B_{\min}$,
+we have $B\ge a$, hence
+\begin{align*}
+ P_*(a,B)-\sum_i P_*(a,h_i)
+ &=L(B-B_{\min})
+   +L(2\lfloor s/2\rfloor-s+1)d\\
+ &\quad+\sum_i\bigl[L(h_i+d)-P_*(a,h_i)\bigr].
+\end{align*}
+All terms on the right are nonnegative. The earlier dominance identity
+shows that each summand in brackets vanishes precisely when $h_i\ge a$:
+it is strictly positive when $h_i<a$. For $a>1$, the middle term is zero
+for odd $s$ and equals $Ld>0$ for even $s$. Thus odd sector counts attain
+equality exactly when $B=B_{\min}$ and every $h_i\ge a$. Even counts
+have gap at least $Ld$, with that lower bound attained under the same
+conditions. If $a=1$, then $d=0$ and $P_*(1,h)=h$, so equality simply
+requires $B=\sum_i h_i$ for either parity.
+
+These are identities of the abstract profile and packing constraints.
+They do not assert that every dimension-feasible packing is realizable
+by a tensor degeneration. They identify equality families that the
+retained inequalities already permit, and quantify the slack in the
+remaining cases.
+
 \paragraph{Reproducibility.}
 The accompanying README documents \texttt{python -B run\_checks.py}.
 The scripts, source manifest, and test expectations are in this repository.
