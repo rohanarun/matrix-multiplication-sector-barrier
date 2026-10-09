@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/openai/math",
+  "commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+  "files": [
+    {
+      "path": "preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026/build/paper.tex",
+      "sha256": "c396f2580a711b8b9e51ecf1265cb0e691acd745943f81bfc14ec0df209e1028"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\title{An obstruction for symmetrized matrix multiplication sectors}
+\author{AI-generated research draft prepared with Codex}
+\date{October 9, 2026}
+\begin{document}
+\maketitle
+\paragraph{Scope and attribution.}
+This is an independent follow-up to
+\href{https://github.com/openai/math/tree/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026}{OpenAI's original manuscript},
+pinned at commit \texttt{fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb}.
+It is not an official OpenAI publication. Mathematical priority and
+independent formal verification are not claimed. Exact checks supplement
+the proofs below and do not verify the imported source lemmas.
+\section{An obstruction for the matrix profile inequalities}
+The matrix paper defines a symmetric positive profile $P(a,b)$ with
+$P(1,b)=b$, separate discrete concavity, and shifted tripling
+$P(a,3h+a-1)\ge3P(a,h)$. Its rank envelope is
+$P(a,b)\le(a+b-1)^{1/t}$. We exhibit an abstract profile compatible with
+these conditions at $t=3/4$.
+
+\begin{theorem}\label{thm:barrier}
+For real $a,b\ge1$, set $u=\min(a,b)$, $v=\max(a,b)$ and
+\[
+ P_*(a,b)=\left(\frac{3u-1}{2}\right)^{1/3}
+                      \left(v+\frac{u-1}{2}\right).
+\]
+Then $P_*$ is positive, symmetric, nondecreasing and separately concave,
+$P_*(1,b)=b$, and it satisfies shifted tripling on positive integers.
+Moreover
+\[
+ P_*(a,b)\le(a+b-1)^{4/3},\qquad
+ P_*(a,a)=\left(\frac{3a-1}{2}\right)^{4/3}=\Theta(a^{4/3}).
+\]
+Thus these abstract constraints alone cannot force a larger diagonal
+growth exponent, or exclude $t=3/4$.
+\end{theorem}
+\begin{proof}
+Fix $a$. On $b\ge a$ the function is linear with positive slope.
+On $1\le b\le a$, put $x=3b-1$, $A=3a-1$; it is
+$(x/2)^{1/3}(2A+x)/6$. Its derivative in $b$ is positive and its
+second derivative is
+\[
+ \frac{2^{2/3}(x-A)}{3x^{5/3}}\le0.
+\]
+The one-sided first derivatives match at $b=a$, both equal to
+$((3a-1)/2)^{1/3}$. Concavity follows globally, and implies the required
+discrete inequalities. Symmetry supplies the other coordinate.
+
+If $h\ge a$, substitution gives
+$P_*(a,3h+a-1)=3P_*(a,h)$ exactly. If $h<a$, put
+$A=3a-1$, $B=3h-1$, and $z=(A/B)^{1/3}>1$.
+After multiplication by a positive factor, shifted tripling becomes
+\[
+ z^4-2z^3+2z-1=(z-1)^3(z+1)\ge0.
+\]
+The boundary value and diagonal formula are direct substitutions.
+Finally both $(3u-1)/2$ and $v+(u-1)/2$ are at most $a+b-1$,
+proving the rank-envelope inequality.
+\end{proof}
+This is not a construction of a tensor character. It is an obstruction
+to a proof using only the listed inequalities. New valid tensor
+constraints, or a different construction, could still improve $9/4$.
+The symbolic identity and exact rational cube comparisons were checked
+by \texttt{tests/test\_profile.py}; these supplement the displayed proof.
+
+\section{Matrix multiplication: a barrier for arbitrary matched sectors}
+\label{sec:sector-barrier}
+The earlier profile obstruction extends beyond three equal branches.
+Consider a degeneration of $C(a,B)$ into matched blocks sharing the
+first leg, each individually equivalent to $C(a,h_i)$, allowing an
+exchange of its second and third legs. No auxiliary tensor factors
+are allowed in the output in this statement. Suppose there are $s$
+blocks, of which $r$ have exchanged legs. Their second and third spaces
+are respectively disjoint. Counting their dimensions forces
+\[
+ B\ge\sum_i h_i+r(a-1),\qquad
+ B+a-1\ge\sum_i h_i+(s-r)(a-1),
+\]
+and hence
+\begin{equation}\label{eq:packing-bound}
+ B\ge\sum_i h_i+\lfloor s/2\rfloor(a-1).
+\end{equation}
+Indeed $\min_{0\le r\le s}\max(r,s-r-1)=\lfloor s/2\rfloor$.
+This constraint holds regardless of which substitutions produce the
+matched blocks.
+
+Applying the source's shared-leg entropy inequality with the same
+probability vector to all six permuted characters, then optimizing it,
+gives the symmetrized consequence
+\[
+ P(a,B)\ge\sum_{i=1}^sP(a,h_i).
+\]
+Each block's possible leg exchange merely permutes the six factors.
+
+\begin{proposition}
+The abstract profile $P_*$ of Theorem~\ref{thm:barrier} satisfies every
+such consequence whenever the dimension bound~\eqref{eq:packing-bound}
+holds. Thus allowing unequal lengths and arbitrarily many standard
+matched sectors does not exclude this profile at $t=3/4$.
+\end{proposition}
+\begin{proof}
+Put $d=(a-1)/2$ and $L=((3a-1)/2)^{1/3}$. We claim
+$P_*(a,h)\le L(h+d)$ for every $h\ge1$, with equality for $h\ge a$.
+For $h<a$, set $A=3a-1$, $H=3h-1$. Cubing both positive sides reduces
+the claim to
+\[
+ A(A+2H)^3-H(2A+H)^3=(A-H)^3(A+H)\ge0.
+\]
+For $s\ge2$, the dimension bound gives $B\ge a$ and
+\[
+ P_*(a,B)=L(B+d)
+ \ge L\left(\sum_i h_i+(2\lfloor s/2\rfloor+1)d\right)
+ \ge\sum_iL(h_i+d)\ge\sum_iP_*(a,h_i).
+\]
+For $s=1$ use monotonicity. This proves the assertion.
+\end{proof}
+This rules out improving the exponent using just these symmetrized
+matched-sector inequalities together with the earlier scalar constraints.
+It leaves open more general output blocks, auxiliary factors, additional
+tensor identities, and stronger information retained before symmetrization.
+No improved matrix-multiplication exponent is claimed.
+
+
+\paragraph{Reproducibility.}
+The accompanying README documents \texttt{python -B run\_checks.py}.
+The scripts, source manifest, and test expectations are in this repository.
+The LaTeX source was compiled successfully with the Codex document editor.
+\end{document}

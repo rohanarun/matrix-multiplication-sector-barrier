@@ -1,0 +1,10 @@
+build/
+upstream/
+.venv/
+__pycache__/
+*.py[cod]
+*.aux
+*.out
+*.log
+*.pdf
+.DS_Store
