@@ -1,6 +1,6 @@
 """Exact algebra supplements the analytic proof; it is not a tensor test."""
 from fractions import Fraction as Q
-from itertools import product
+from itertools import permutations, product
 import unittest
 import sympy as s
 
@@ -182,3 +182,128 @@ class LeastProfileTests(unittest.TestCase):
 
 
 if __name__=='__main__':unittest.main()
+
+
+LEGS=('X','Y','Z')
+PLACEMENTS=[p for p in permutations(LEGS)]
+
+
+def swap12(pi):return (pi[1],pi[0],pi[2])
+def swap23(pi):return (pi[0],pi[2],pi[1])
+
+
+def flattening(F):
+    # Values of the flattening character along lambda-leg F on C(a,b)^pi,
+    # and its dot-product exponents.
+    exps={L:(0 if L==F else 1) for L in LEGS}
+    def ell(pi,a,b):return (a,b,a+b-1)[pi.index(F)]
+    return ell,exps
+
+
+class LegResolvedTests(unittest.TestCase):
+    N=24
+
+    def test_hoelder_form_stationarity_and_value(self):
+        p=s.symbols('p',positive=True)
+        A=s.symbols('A1:4',positive=True)
+        S_=sum(Ai**(1/p) for Ai in A)
+        q=[Ai**(1/p)/S_ for Ai in A]
+        grads=[s.log(Ai)-p*s.log(qi)-p for Ai,qi in zip(A,q)]
+        for g in grads[1:]:
+            self.assertEqual(s.simplify(s.expand_log(g-grads[0],force=True)),0)
+        value=sum(qi*(s.log(Ai)-p*s.log(qi)) for Ai,qi in zip(A,q))
+        self.assertEqual(s.simplify(s.expand_log(value-p*s.log(S_),force=True)),0)
+        # Rational probe: the entropy form never exceeds the Hoelder form.
+        import math
+        for vals,pp in (((3,5,2),Q(3,4)),((1,1,4),Q(1,2)),((2,7,7),1)):
+            target=sum(v**(1/float(pp)) for v in vals)**float(pp)
+            best=0
+            for i in range(1,20):
+                for j in range(1,20-i):
+                    qv=(i/20,j/20,(20-i-j)/20)
+                    ent=-sum(x*math.log(x) for x in qv if x>0)
+                    best=max(best,math.exp(float(pp)*ent)*math.prod(v**x for v,x in zip(vals,qv)))
+            self.assertLessEqual(best,target*(1+1e-12))
+
+    def test_flattening_characters_are_leg_resolved_solutions(self):
+        N=self.N
+        for F in LEGS:
+            ell,exps=flattening(F)
+            for pi in PLACEMENTS:
+                p=exps[pi[0]]
+                for a in range(1,N+1):
+                    for b in range(1,N+1):
+                        v=ell(pi,a,b)
+                        self.assertEqual(ell(pi,1,b),b**exps[pi[0]])
+                        self.assertEqual(ell(pi,a,1),a**exps[pi[1]])
+                        self.assertEqual(ell(pi,b,a),ell(swap12(pi),a,b))
+                        self.assertTrue(1<=v<=a+b-1)
+                        self.assertLessEqual(v,ell(pi,a+1,b))
+                        self.assertLessEqual(v,ell(pi,a,b+1))
+                        if b>=2:
+                            if p==1:
+                                self.assertEqual(2*v,ell(pi,a,b+1)+ell(pi,a,b-1))
+                            else:
+                                self.assertGreaterEqual(v,max(ell(pi,a,b+1),ell(pi,a,b-1)))
+                        h=b
+                        lhs=ell(pi,a,3*h+a-1)
+                        parts=(ell(pi,a,h),ell(pi,a,h),ell(swap23(pi),a,h))
+                        if p==1:
+                            self.assertEqual(lhs,sum(parts))
+                        else:
+                            self.assertGreaterEqual(lhs,max(parts))
+
+    def test_symmetric_least_assignment_is_leg_resolved_solution(self):
+        # ell = P_min^{3/4}, p = 3/4: raise each Hoelder inequality to 4/3 and
+        # compare rationals. Sector inequalities use the packing bound.
+        N=self.N
+        for a in range(1,N+1):
+            self.assertEqual(least(a,1),a)
+            for b in range(2,N+1):
+                self.assertGreaterEqual(2*least(a,b),least(a,b+1)+least(a,b-1))
+            for h in range(1,N+1):
+                self.assertGreaterEqual(least(a,3*h+a-1),3*least(a,h))
+                self.assertLessEqual(least(a,h)**3,Q(a+h-1)**4)
+            for blocks in range(2,6):
+                for lengths in product((1,max(1,a-1),a,a+2),repeat=blocks):
+                    B=sum(lengths)+(blocks//2)*(a-1)
+                    self.assertGreaterEqual(least(a,B),sum(least(a,h) for h in lengths))
+
+    def test_log_mixture_is_a_solution(self):
+        # Convexity in (log ell, p): the geometric mean of the symmetric
+        # assignment and the output flattening, with averaged exponents.
+        from mpmath import mp,mpf,power
+        mp.dps=40
+        tol=mpf('1e-30')
+        ellZ,expZ=flattening('Z')
+        exps={L:(mpf(3)/4+expZ[L])/2 for L in LEGS}
+        def ell(pi,a,b):
+            v=least(a,b)
+            return power(power(mpf(v.numerator)/v.denominator,mpf(3)/4)*ellZ(pi,a,b),mpf(1)/2)
+        def phi(p,vals):return power(sum(power(v,1/p) for v in vals),p)
+        N=12
+        for pi in PLACEMENTS:
+            p=exps[pi[0]]
+            for a in range(1,N+1):
+                for b in range(1,N+1):
+                    v=ell(pi,a,b)
+                    self.assertLess(abs(ell(pi,1,b)-power(b,exps[pi[0]])),tol)
+                    self.assertLess(abs(ell(pi,a,1)-power(a,exps[pi[1]])),tol)
+                    self.assertLess(abs(v-ell(swap12(pi),b,a)),tol)
+                    self.assertLessEqual(v,a+b-1+tol)
+                    if b>=2:
+                        self.assertGreaterEqual(power(2,p)*v,phi(p,[ell(pi,a,b+1),ell(pi,a,b-1)])-tol)
+                    h=b
+                    self.assertGreaterEqual(ell(pi,a,3*h+a-1),phi(p,[ell(pi,a,h),ell(pi,a,h),ell(swap23(pi),a,h)])-tol)
+
+    def test_exponent_corollary(self):
+        # With p_X = p_Y = 1 the h = 1 tripling forces a^{p_Z} <= 1 for all a.
+        from mpmath import mp,mpf,power
+        mp.dps=30
+        for pz in (mpf(1)/4,mpf(1)/2,mpf('0.01')):
+            self.assertTrue(any(2*a+1<2*a+power(a,pz) for a in range(2,50)))
+        self.assertTrue(all(2*a+1>=2*a+power(a,0) for a in range(1,50)))
+        # The symmetric triple passes the same family for every placement.
+        p=mpf(3)/4
+        for a in range(1,200):
+            self.assertGreaterEqual(power(2*a+1,1/p),3*power(a,1))
