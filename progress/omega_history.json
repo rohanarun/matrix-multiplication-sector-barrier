@@ -1,23 +1,98 @@
 {
   "note": "Upper bounds on the matrix multiplication exponent omega over time. Values are the published bounds rounded to the shown digits. The 2026-10-02 entry is a preprint claim by OpenAI (github.com/openai/math), not a peer-reviewed result; the chart marks it as claimed.",
   "records": [
-    {"date": "1969-01-01", "omega": 2.8074, "who": "Strassen", "label": "Strassen 1969"},
-    {"date": "1978-01-01", "omega": 2.796, "who": "Pan"},
-    {"date": "1979-01-01", "omega": 2.780, "who": "Bini, Capovani, Romani, Lotti"},
-    {"date": "1981-01-01", "omega": 2.522, "who": "Schönhage", "label": "Schönhage 1981"},
-    {"date": "1981-06-01", "omega": 2.517, "who": "Romani"},
-    {"date": "1981-10-01", "omega": 2.496, "who": "Coppersmith, Winograd"},
-    {"date": "1986-01-01", "omega": 2.479, "who": "Strassen"},
-    {"date": "1990-01-01", "omega": 2.3755, "who": "Coppersmith, Winograd", "label": "Coppersmith–Winograd 1990"},
-    {"date": "2010-01-01", "omega": 2.3737, "who": "Stothers"},
-    {"date": "2012-01-01", "omega": 2.3729, "who": "Vassilevska Williams"},
-    {"date": "2014-01-01", "omega": 2.3728639, "who": "Le Gall", "label": "Le Gall 2014"},
-    {"date": "2021-01-01", "omega": 2.3728596, "who": "Alman, Vassilevska Williams"},
-    {"date": "2023-01-01", "omega": 2.371866, "who": "Duan, Wu, Zhou"},
-    {"date": "2024-01-01", "omega": 2.371552, "who": "Vassilevska Williams, Xu, Xu, Zhou"},
-    {"date": "2025-01-01", "omega": 2.371339, "who": "Alman, Duan, Vassilevska Williams, Xu, Xu, Zhou"},
-    {"date": "2026-08-01", "omega": 2.371177, "who": "Dupont et al. (AlphaEvolve)", "label": "AlphaEvolve 2026"},
-    {"date": "2026-10-02", "omega": 2.25, "who": "OpenAI (preprint claim)", "label": "OpenAI 9/4 (claimed)", "highlight": true}
+    {
+      "date": "1969-01-01",
+      "omega": 2.8074,
+      "who": "Strassen",
+      "label": "Strassen 1969"
+    },
+    {
+      "date": "1978-01-01",
+      "omega": 2.796,
+      "who": "Pan"
+    },
+    {
+      "date": "1979-01-01",
+      "omega": 2.78,
+      "who": "Bini, Capovani, Romani, Lotti"
+    },
+    {
+      "date": "1981-01-01",
+      "omega": 2.522,
+      "who": "Schönhage",
+      "label": "Schönhage 1981"
+    },
+    {
+      "date": "1981-06-01",
+      "omega": 2.517,
+      "who": "Romani"
+    },
+    {
+      "date": "1981-10-01",
+      "omega": 2.496,
+      "who": "Coppersmith, Winograd"
+    },
+    {
+      "date": "1986-01-01",
+      "omega": 2.479,
+      "who": "Strassen"
+    },
+    {
+      "date": "1990-01-01",
+      "omega": 2.3755,
+      "who": "Coppersmith, Winograd",
+      "label": "Coppersmith–Winograd 1990"
+    },
+    {
+      "date": "2010-01-01",
+      "omega": 2.3737,
+      "who": "Stothers"
+    },
+    {
+      "date": "2012-01-01",
+      "omega": 2.3729,
+      "who": "Vassilevska Williams"
+    },
+    {
+      "date": "2014-01-01",
+      "omega": 2.3728639,
+      "who": "Le Gall",
+      "label": "Le Gall 2014"
+    },
+    {
+      "date": "2021-01-01",
+      "omega": 2.3728596,
+      "who": "Alman, Vassilevska Williams"
+    },
+    {
+      "date": "2023-01-01",
+      "omega": 2.371866,
+      "who": "Duan, Wu, Zhou"
+    },
+    {
+      "date": "2024-01-01",
+      "omega": 2.371552,
+      "who": "Vassilevska Williams, Xu, Xu, Zhou"
+    },
+    {
+      "date": "2025-01-01",
+      "omega": 2.371339,
+      "who": "Alman, Duan, Vassilevska Williams, Xu, Xu, Zhou"
+    },
+    {
+      "date": "2026-08-01",
+      "omega": 2.371177,
+      "who": "Dupont et al. (AlphaEvolve)",
+      "label": "AlphaEvolve 2026"
+    },
+    {
+      "date": "2026-10-02",
+      "omega": 2.25,
+      "who": "OpenAI (preprint claim)",
+      "label": "OpenAI 9/4 (claimed)",
+      "highlight": true
+    }
   ],
   "barrier": {
     "omega": 2.25,
@@ -26,9 +101,49 @@
   "least_constant_bracket": {
     "note": "Bounds on the smallest possible limit of P(a,a)/a^(4/3) over all profiles meeting OpenAI's abstract constraints. Lower bound: OpenAI's growth lemma (3/(2*Gamma(4/3))). Upper bound: an explicit admissible profile.",
     "points": [
-      {"date": "2026-10-02", "lower": 1.67977, "upper": null, "what": "OpenAI preprint: growth lemma gives the lower bound; no admissible profile exhibited"},
-      {"date": "2026-10-09", "lower": 1.67977, "upper": 1.71714, "what": "This repo, PR #1: profile P* gives (3/2)^(4/3)"},
-      {"date": "2026-10-10", "lower": 1.67977, "upper": 1.67977, "what": "This PR: least profile P_min closes the gap"}
+      {
+        "date": "2026-10-02",
+        "lower": 1.67977,
+        "upper": null,
+        "what": "OpenAI preprint: growth lemma gives the lower bound; no admissible profile exhibited"
+      },
+      {
+        "date": "2026-10-09",
+        "lower": 1.67977,
+        "upper": 1.71714,
+        "what": "This repo, PR #1: profile P* gives (3/2)^(4/3)"
+      },
+      {
+        "date": "2026-10-10",
+        "lower": 1.67977,
+        "upper": 1.67977,
+        "what": "This repo, PR #2: least profile P_min closes the gap"
+      }
+    ]
+  },
+  "barrier_scope": {
+    "note": "Classes of the 9/4 proof's constraints shown (in this repo) to admit an abstract solution at t = 3/4, i.e. to be unable to improve 9/4 on their own.",
+    "points": [
+      {
+        "when": "2026-10-02T00:00",
+        "count": 0,
+        "label": "OpenAI preprint"
+      },
+      {
+        "when": "2026-10-09T12:00",
+        "count": 2,
+        "label": "PR #1: scalar rules +\narbitrary matched sectors"
+      },
+      {
+        "when": "2026-10-10T05:00",
+        "count": 3,
+        "label": "PR #2: least profile,\ngrowth lemma sharp"
+      },
+      {
+        "when": "2026-10-10T07:00",
+        "count": 4,
+        "label": "PR #3: leg-resolved\n(before symmetrization)"
+      }
     ]
   }
 }

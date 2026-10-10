@@ -5,7 +5,7 @@ with OpenAI's 9/4 preprint claim highlighted and this repository's
 barrier line. Right: the bracket on the least admissible diagonal
 constant, which this repository closed. Requires matplotlib.
 """
-from datetime import date
+from datetime import date, datetime
 import json
 from pathlib import Path
 
@@ -30,12 +30,13 @@ def main():
                          'axes.edgecolor': GRID, 'axes.labelcolor': INK2,
                          'xtick.color': INK2, 'ytick.color': INK2,
                          'text.color': INK})
-    fig = plt.figure(figsize=(13, 6.2), facecolor=SURFACE)
-    gs = fig.add_gridspec(1, 2, width_ratios=[2.6, 1], wspace=0.25,
-                          left=0.06, right=0.975, top=0.80, bottom=0.15)
+    fig = plt.figure(figsize=(16, 6.2), facecolor=SURFACE)
+    gs = fig.add_gridspec(1, 3, width_ratios=[2.4, 1, 1], wspace=0.3,
+                          left=0.05, right=0.985, top=0.80, bottom=0.15)
     ax = fig.add_subplot(gs[0])
     bx = fig.add_subplot(gs[1])
-    for a in (ax, bx):
+    cx = fig.add_subplot(gs[2])
+    for a in (ax, bx, cx):
         a.set_facecolor(SURFACE)
         a.grid(True, color=GRID, linewidth=0.8)
         a.set_axisbelow(True)
@@ -103,14 +104,37 @@ def main():
     bx.set_xticklabels(['Oct 2', 'Oct 9', '\nOct 10'])
     bx.set_title('Least diagonal constant', loc='left', fontsize=12,
                  color=INK, pad=22)
-    bx.text(0, 1.02, 'min P(a,a)/a^(4/3); bracket closed by this PR',
+    bx.text(0, 1.02, 'min P(a,a)/a^(4/3); bracket closed by PR #2',
             transform=bx.transAxes, fontsize=9, color=INK2)
     bx.legend(loc='upper right', frameon=False, fontsize=8.5)
 
+    sc = data['barrier_scope']['points']
+    sx = [datetime.fromisoformat(q['when']) for q in sc]
+    sy = [q['count'] for q in sc]
+    cx.step(sx, sy, where='post', color=BLUE, linewidth=2, zorder=3)
+    cx.plot(sx, sy, linestyle='none', marker='o', markersize=6, color=BLUE,
+            zorder=4)
+    for q, x, y in zip(sc, sx, sy):
+        if y == 0:
+            continue
+        dy = {2: -36, 3: 0, 4: 8}[y]
+        cx.annotate(q['label'], (x, y), xytext=(-10, dy),
+                    textcoords='offset points', fontsize=8.5, color=INK2,
+                    ha='right')
+    cx.set_ylim(-0.3, 5)
+    cx.set_yticks([0, 1, 2, 3, 4])
+    cx.set_xlim(datetime(2026, 10, 1, 12), datetime(2026, 10, 11, 12))
+    cx.set_xticks([datetime(2026, 10, 2), datetime(2026, 10, 9),
+                   datetime(2026, 10, 10)])
+    cx.set_xticklabels(['Oct 2', 'Oct 9', '\nOct 10'])
+    cx.set_title('Barrier scope', loc='left', fontsize=12, color=INK, pad=22)
+    cx.text(0, 1.02, 'rule classes of the 9/4 proof shown barriered',
+            transform=cx.transAxes, fontsize=9, color=INK2)
+
     fig.suptitle('Progress on the matrix multiplication exponent and on the '
                  '9/4 barrier of the symmetrized sector method',
-                 x=0.06, ha='left', fontsize=14, color=INK, y=0.955)
-    fig.text(0.06, 0.025,
+                 x=0.05, ha='left', fontsize=14, color=INK, y=0.955)
+    fig.text(0.05, 0.025,
              'Sources: published records (Strassen 1969 … Alman et al. 2025, '
              'Dupont et al. 2026); OpenAI, "An Upper Bound of 9/4 for the '
              'Matrix Multiplication Exponent", preprint Oct 2 2026 (claim, '

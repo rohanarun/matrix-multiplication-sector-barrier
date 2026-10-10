@@ -87,9 +87,24 @@ Consequences:
 
 As before, these are identities of abstract profiles. They do not claim realizability by tensor characters and do not change the exponent bound.
 
+## Before symmetrization: the leg-resolved system
+
+OpenAI's inequalities hold for each of the six leg-permuted characters separately; the symmetrized profile is their geometric mean. Section 5 of the proof records the un-symmetrized system. Optimizing the shared-leg entropy inequality over the probability vector gives a closed Hölder form, $\sup_q e^{pH(q)}\prod_i A_i^{q_i}=(\sum_i A_i^{1/p})^p$, so for each placement $\pi$ of the legs of $C(a,b)$ on the legs of $\lambda$, with $p$ the exponent of the leg carrying the shared first input,
+
+```math
+2^{p}\,\ell_\pi(a,b)\ge\Bigl(\ell_\pi(a,b+1)^{1/p}+\ell_\pi(a,b-1)^{1/p}\Bigr)^{p},
+\qquad
+\ell_\pi(a,3h+a-1)\ge\Bigl(2\,\ell_\pi(a,h)^{1/p}+\ell_{\pi\sigma}(a,h)^{1/p}\Bigr)^{p},
+```
+
+plus boundary values $\ell_\pi(1,b)=b^{p_{\pi(1)}}$, $\ell_\pi(a,1)=a^{p_{\pi(2)}}$, the rank bound, monotonicity and the sector versions.
+
+- **The barrier survives before symmetrization.** In the coordinates $(\log\ell_\pi,p)$ the solution set is convex. The three flattening characters ($3t=2$, exponent triples the permutations of $(0,1,1)$) and the symmetric assignment $\ell_\pi\equiv P_{\min}^{3/4}$, $p=(3/4,3/4,3/4)$ ($3t=9/4$) are explicit solutions, hence so is every log-convex combination. No inequality of the source, used with arbitrary probability vectors and arbitrary matched sectors but without symmetrization, excludes $3t=9/4$. This closes the "information retained before symmetrization" item from the earlier list, for the inequalities the source actually derives.
+- **An exponent constraint.** The un-symmetrized system is not empty of content: any tensor character with two dot-product exponents equal to $1$ has the third equal to $0$ (so $\lambda(T_m)=m^2$), by the $h=1$ tripling with the rank bound. On the slice $p_X+p_Y+p_Z=9/4$ this and its $(a,h)$ relatives exclude a neighbourhood of each corner $(1,1,\tfrac14)$; [progress/exponent_region.png](progress/exponent_region.png) maps the surviving region (about 96% of the slice, with the symmetric point well inside). Whether asymmetric triples with sum $9/4$ admit leg-resolved solutions is open and does not affect the barrier.
+
 ## Progress chart and summary
 
-[progress/omega_progress.png](progress/omega_progress.png) plots the history of upper bounds on the matrix-multiplication exponent, with OpenAI's $9/4$ preprint and the barrier line of this repository, beside the bracket on the least diagonal constant that this update closes. Regenerate it with `python -B progress/plot_progress.py` (needs matplotlib). A plain-language summary is in [progress/tweet.md](progress/tweet.md).
+[progress/omega_progress.png](progress/omega_progress.png) plots the history of upper bounds on the matrix-multiplication exponent, with OpenAI's $9/4$ preprint and the barrier line of this repository, beside the bracket on the least diagonal constant and the growing scope of the barrier. Regenerate it with `python -B progress/plot_progress.py` (needs matplotlib); `python -B progress/exponent_region.py` draws the exponent-triple map (needs numpy). Plain-language summaries are in [progress/tweet.md](progress/tweet.md).
 
 ## Reproduce
 
@@ -111,6 +126,8 @@ The full argument is in [proof.tex](proof.tex), which has been compiled successf
 Seven tests check the symbolic derivatives and their matching at the diagonal, 10,000 exact rational cube comparisons for tripling and the rank envelope, the dominance identity, finite sector-dimension cases and unequal-length tuples, and a counterexample to incorrectly omitting the additive shift in tripling.
 
 The new cases check exact odd-sector saturation, even-sector slack, and the strict deficit for short sectors. No floating-point cube roots are used.
+
+Five tests cover the leg-resolved system: the Hölder form (symbolic stationarity and value, plus a rational grid probe), all six placements of the three flattening characters with exact equality in concavity and tripling, the symmetric assignment (rational, including sector tuples under the packing bound), a log-mixture of the symmetric assignment and the output flattening checked to 30 digits with mpmath, and the exponent corollary.
 
 Seven further tests cover the least profile: the product $H_u$ agrees with the Gamma-function quotient (sympy, exact), $P_{\min}$ satisfies concavity, tripling and the envelope on an 80-by-80 window with the tripling equality cases exactly $h\ge a-1$, the ratio lemma and its three induction identities, $P_{\min}\le P_*$ with a strictly increasing cubed ratio below $1.0223^3$, the minimality chain evaluated on $P_*$ and the growth recursion, the limit constant $3/(2\Gamma(4/3))$, and the sector saturation classification for the least profile. All comparisons are between rational numbers. Finite tests supplement the all-parameter analytic proofs; they are not an asymptotic extrapolation or a test of tensor realizability.
 

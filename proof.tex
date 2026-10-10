@@ -324,6 +324,146 @@ is smaller than the slack $Ld$ of $P_*$. For $a=1$ nothing changes.
 As before, these are identities of an abstract profile and say nothing
 about realizability by tensor degenerations.
 
+\section{Before symmetrization: the leg-resolved system}\label{sec:leg}
+The source derives its inequalities for each of the six leg-permuted
+characters and only then multiplies them into the symmetrized profile.
+This section records what the inequalities say \emph{before} that
+product is taken, and shows that the barrier survives there too.
+
+Number the legs of $C(a,b)$ as $1$ (first input, dimension $a$),
+$2$ (second input, dimension $b$) and $3$ (output dual, dimension
+$a+b-1$). A \emph{placement} is a bijection $\pi$ from $\{1,2,3\}$ to
+the legs $\{X,Y,Z\}$ of a character $\lambda$ with dot-product
+exponents $(p_X,p_Y,p_Z)\in[0,1]^3$; write $C^\pi$ for $C$ with leg
+$j$ placed on $\pi(j)$ and
+\[
+ \ell_\pi(a,b)=\lambda\bigl(C(a,b)^\pi\bigr)>0 .
+\]
+Let $\tau$ exchange $1,2$ and $\sigma$ exchange $2,3$. Since $C(b,a)$ is
+$C(a,b)$ with its input legs exchanged, $\ell_\pi(b,a)=\ell_{\pi\tau}(a,b)$.
+For $p>0$ and $A_1,\dots,A_k>0$ put
+$\Phi_p(A_1,\dots,A_k)=\bigl(\sum_iA_i^{1/p}\bigr)^p$, and
+$\Phi_0(A_1,\dots,A_k)=\max_iA_i$.
+
+\begin{lemma}[H\"older form]\label{lem:hoelder}
+For $p>0$,
+$\sup_q e^{pH(q)}\prod_iA_i^{q_i}=\Phi_p(A_1,\dots,A_k)$, the supremum
+over probability vectors being attained at $q_i=A_i^{1/p}/\sum_jA_j^{1/p}$.
+For $p=0$ the supremum is $\max_iA_i$.
+\end{lemma}
+\begin{proof}
+The objective $\sum_iq_i\log A_i-p\sum_iq_i\log q_i$ is concave in $q$.
+At the stated $q$, the partial derivatives
+$\log A_i-p\log q_i-p$ all equal $p\log\sum_jA_j^{1/p}-p$, so this
+interior point is the maximizer, and the value there is
+$\sum_iq_i\bigl(\log A_i-p\log q_i\bigr)=p\log\sum_jA_j^{1/p}$.
+The case $p=0$ is immediate.
+\end{proof}
+
+Applying Lemma~\ref{lem:hoelder} to the source's shared-leg entropy
+inequality for the character $\lambda_\pi$, with $p=p_{\pi(1)}$ the
+exponent of the leg carrying the shared first input, the determinant
+filtration and the three-sector degeneration give, for every placement,
+\begin{align}
+ \ell_\pi(1,b)&=b^{\,p_{\pi(1)}},\qquad
+ \ell_\pi(a,1)=a^{\,p_{\pi(2)}},\qquad
+ 1\le\ell_\pi(a,b)\le a+b-1,\label{eq:L1}\\
+ 2^{p}\,\ell_\pi(a,b)&\ \ge\ \Phi_p\bigl(\ell_\pi(a,b+1),\ell_\pi(a,b-1)\bigr)
+ \qquad(b\ge2),\label{eq:L3}\\
+ \ell_\pi(a,3h+a-1)&\ \ge\ \Phi_p\bigl(\ell_\pi(a,h),\ell_\pi(a,h),
+ \ell_{\pi\sigma}(a,h)\bigr),\label{eq:L4}
+\end{align}
+together with monotonicity in each argument and, for matched sectors
+of lengths $h_i$ with orientations $\varepsilon_i\in\{\mathrm{id},\sigma\}$
+as in Section~\ref{sec:sector-barrier},
+$\ell_\pi(a,B)\ge\Phi_p\bigl(\ell_{\pi\varepsilon_1}(a,h_1),\dots,
+\ell_{\pi\varepsilon_s}(a,h_s)\bigr)$. The boundary values come from
+$C(1,b)=x_0\sum_jy_jz_j$ and $C(a,1)=y_0\sum_ix_iz_i$, the dot products
+whose scalar leg is leg $1$, respectively leg $2$; the first-argument
+versions of
+\eqref{eq:L3}--\eqref{eq:L4} are the same statements for $\pi\tau$.
+We call a family $(\ell_\pi)_\pi$ with exponents $p$ satisfying all
+of these a \emph{leg-resolved solution} with $3t=p_X+p_Y+p_Z$.
+Multiplying \eqref{eq:L3} over the six placements and using
+$\sum_\pi p_{\pi(1)}=6t$ recovers the source's concavity for
+$P=(\prod_\pi\ell_\pi)^{1/(6t)}$, and likewise for tripling and
+sectors; so every symmetrized inequality is implied, and a barrier for
+the leg-resolved system is stronger than one for the profile.
+
+\begin{theorem}\label{thm:leg}
+In the coordinates $(\log\ell_\pi,p)$ the leg-resolved solutions form a
+convex set. It contains
+\begin{enumerate}
+\item the three flattening characters: flattening along the leg $F$
+has $p_F=0$ and the other two exponents $1$, and
+$\ell_\pi(a,b)\in\{a,\,b,\,a+b-1\}$ according to whether leg $1$, $2$
+or $3$ of $C$ is placed on $F$; here $3t=2$;
+\item the symmetric assignment $\ell_\pi\equiv P_{\min}^{3/4}$ for all
+$\pi$, $p=(\tfrac34,\tfrac34,\tfrac34)$; here $3t=9/4$.
+\end{enumerate}
+Hence for every $3t\in[2,9/4]$ and every exponent triple in the convex
+hull of $(0,1,1),(1,0,1),(1,1,0),(\tfrac34,\tfrac34,\tfrac34)$ there is
+a leg-resolved solution, and none of the inequalities above, used with
+arbitrary probability vectors and arbitrary matched sectors but without
+symmetrization, excludes $3t=9/4$.
+\end{theorem}
+\begin{proof}
+For each fixed probability vector $q$, each inequality in its entropy
+form reads
+$\log\ell_\pi(a,b)+p\log2\ge pH(q)+\sum_iq_i\log\ell_{\pi_i}(\cdot)$,
+which is linear in $(\log\ell,p)$; the H\"older forms are the
+intersections over $q$. The boundary conditions, the rank and
+monotonicity constraints and the exponent constraints are linear as
+well, so the solution set is convex.
+
+Flattening ranks are characters, so they satisfy every inequality of
+the source. The listed values are their flattening ranks on
+$C(a,b)$: the leg-$1$ and leg-$2$ flattenings have full rank $a$ and $b$
+because their rows have disjoint supports, and the output flattening
+has rank $a+b-1$. The exponents follow from the flattening ranks of the
+oriented dot products. The tests verify \eqref{eq:L1}--\eqref{eq:L4}
+directly for all six placements, where \eqref{eq:L3} and \eqref{eq:L4}
+hold with equality.
+
+For the symmetric assignment, \eqref{eq:L1} is $P_{\min}(1,b)=b$,
+$P_{\min}(a,1)=a$ and $P_{\min}\le(a+b-1)^{4/3}$; raising
+\eqref{eq:L3} and \eqref{eq:L4} to the power $4/3$ turns them into the
+discrete concavity and shifted tripling of $P_{\min}$, and the sector
+inequalities into those of the preceding section. Symmetry of $P_{\min}$
+supplies the placements $\pi\tau$. Theorem~\ref{thm:least} and the
+sector identities give all of these. The remaining assertions follow
+from convexity.
+\end{proof}
+
+\begin{corollary}[An exponent constraint]\label{cor:exponent}
+Let $\lambda$ be any tensor character. If two of $p_X,p_Y,p_Z$ equal
+$1$, the third equals $0$, and then $\lambda(T_m)=m^2$ for all $m$.
+\end{corollary}
+\begin{proof}
+Say $p_X=p_Y=1$ and take the identity placement, so $p=1$ and
+$\Phi_1$ is the sum. Inequality~\eqref{eq:L4} with $h=1$ and the rank
+bound in \eqref{eq:L1} give
+\[
+ 2a+1\ \ge\ \ell_{\mathrm{id}}(a,a+2)\ \ge\
+ 2\ell_{\mathrm{id}}(a,1)+\ell_{\sigma}(a,1)=2a+a^{p_Z},
+\]
+using $\ell_{\mathrm{id}}(a,1)=a^{p_Y}$ and $\ell_\sigma(a,1)=a^{p_Z}$.
+Thus $a^{p_Z}\le1$ for every $a$, so $p_Z=0$, and
+$\lambda(T_m)=m^{p_X+p_Y+p_Z}=m^2$.
+\end{proof}
+
+The corollary shows that the leg-resolved system does retain
+information that the symmetrized profile discards: on the slice
+$p_X+p_Y+p_Z=9/4$ the triples $(1,1,\tfrac14)$ and its permutations are
+impossible, and the same inequality at general $(a,h)$ with the
+monotone lower bounds $\ell_\pi(a,h)\ge\max(a^{p_{\pi(2)}},h^{p})$
+excludes a neighbourhood of each of these three corners
+(\texttt{progress/exponent\_region.py} maps it). That information
+constrains the \emph{shape} of the exponent triple, not its sum: by
+Theorem~\ref{thm:leg} the symmetric triple with sum $9/4$ remains
+untouched. Whether asymmetric triples with sum $9/4$ admit leg-resolved
+solutions is left open; it does not affect the barrier.
+
 \paragraph{Reproducibility.}
 The accompanying README documents \texttt{python -B run\_checks.py}.
 The scripts, source manifest, and test expectations are in this repository.
