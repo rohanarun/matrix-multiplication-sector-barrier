@@ -1,0 +1,18 @@
+{
+  "algorithm": "sha256",
+  "excludes": {
+    "MANIFEST.json": "Self digest is not defined; Git commit pins this file",
+    "__pycache__": "Ephemeral bytecode; reproduce with -B"
+  },
+  "files": {
+    "CLAIM.md": "bdf64adcddcaa4e469e9261395f74ef2330e182c2135b93d2242deb171451ad3",
+    "NOTICE.md": "56121c4124fce4d708f9a3145304181174667554ab682d2fcd5c7ff19b0b4a1a",
+    "README.md": "c3abe7099311a6e9a66b8bc4965330c5630add0b96f70aae7772f7a4939ffa17",
+    "RESEARCH_HANDOFF.md": "066b03a7ca144ae1c9694ac8e7b2767992abec142fa122c09f64c00f0f494bde",
+    "RESULT.json": "06350a619db281368ee7fefbd5d78510a9354998c8d77c215120236931e78eee",
+    "build.py": "d102f96380d42d60a263efe565dd115a3cd932a8e888471e22c505225aca0dc7",
+    "certificate.json": "134e37419a01fee8b9db538cba8193210df432f6c2faf8ae29eb7cdf6f823d9c",
+    "check.py": "87c7d40e3dcd019da2b9636ac629e40f24ee173506faaeb317cd93ebdfc1c921",
+    "verify.py": "53cdb8bca4e12958674f2375d0f378a43f7e1747c35ffc75f99269a187f24d55"
+  }
+}

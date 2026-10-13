@@ -1,0 +1,90 @@
+{
+  "assignment_seed": 75,
+  "base_commit": "0b09d3616da31d8750366747d7821d70ae6d1b90",
+  "base_file_sha256": {
+    "auto-research.md": "38265843b8568c7acfc8f5637d8619eced405ae1f29175640e6586b46cc6b34a",
+    "proof.tex": "cc6b918836a6a91d4199e5bb03ad12462f037f3f3b71352efc88ea7d7b535d42",
+    "source-manifest.json": "74ea36dc362b4e6b34b2f54177110c303c45643c7875b9e040fb94986f6a3462",
+    "tests/test_profile.py": "f3c674bdc2201feb3cfd056a818a4e73d64ca6e159af2316372a31dcef90470e"
+  },
+  "claim": "Exact raw-axiom certificates for the lower-bound half of the least-profile theorem",
+  "coverage": {
+    "additional_pairs": [
+      [
+        2,
+        75
+      ],
+      [
+        75,
+        2
+      ],
+      [
+        25,
+        25
+      ],
+      [
+        7,
+        31
+      ],
+      [
+        31,
+        7
+      ]
+    ],
+    "completed": 149,
+    "order": "Python random.Random(75) shuffle",
+    "square_max": 12,
+    "stopping_rule": "Exhaust the declared finite domain"
+  },
+  "dependencies": {
+    "baseline": {
+      "mpmath": "1.3.0",
+      "sympy": "1.14.0"
+    },
+    "contribution": "Python standard library only"
+  },
+  "example": {
+    "a": 7,
+    "b": 11,
+    "lower": "193648/6561"
+  },
+  "expected_summary": {
+    "certificates_checked": 149,
+    "max_rows": 975,
+    "negative_controls": 8,
+    "saved_certificate_rows": 96
+  },
+  "inherited_axioms": [
+    "symmetry",
+    "P(1,1)=1 only",
+    "separate discrete concavity",
+    "shifted tripling"
+  ],
+  "not_claimed": [
+    "new exponent bound",
+    "tensor realizability",
+    "formal proof-assistant verification",
+    "verification of upstream source lemmas",
+    "maintainer acceptance"
+  ],
+  "seed_source": "secrets.randbelow(100), operating-system randomness, drawn once",
+  "source_pins": {
+    "commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+    "files": [
+      {
+        "path": "preprints/Matrix-Multiplication-Nine-Fourths-October-2-2026/build/paper.tex",
+        "sha256": "c396f2580a711b8b9e51ecf1265cb0e691acd745943f81bfc14ec0df209e1028"
+      }
+    ],
+    "repository": "https://github.com/openai/math"
+  },
+  "status": "independent verification",
+  "validation": {
+    "baseline_tests_passed": 14,
+    "certificate_checks_passed": 149,
+    "negative_controls_passed": 8,
+    "optimized_execution": "same 149 certificates and 8 negative controls passed",
+    "python": "3.12.14",
+    "saved_raw_rows_saturated_on_least_profile": 96
+  }
+}
