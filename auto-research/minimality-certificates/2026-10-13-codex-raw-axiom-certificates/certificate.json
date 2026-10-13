@@ -1,0 +1,777 @@
+{
+  "rows": [
+    {
+      "args": [
+        1
+      ],
+      "kind": "boundary",
+      "weight": "193648/6561"
+    },
+    {
+      "args": [
+        1,
+        2
+      ],
+      "kind": "concavity",
+      "weight": "48412/6561"
+    },
+    {
+      "args": [
+        2,
+        2
+      ],
+      "kind": "concavity",
+      "weight": "96824/6561"
+    },
+    {
+      "args": [
+        2,
+        3
+      ],
+      "kind": "concavity",
+      "weight": "110656/6561"
+    },
+    {
+      "args": [
+        2,
+        4
+      ],
+      "kind": "concavity",
+      "weight": "27664/2187"
+    },
+    {
+      "args": [
+        2,
+        5
+      ],
+      "kind": "concavity",
+      "weight": "55328/6561"
+    },
+    {
+      "args": [
+        2,
+        6
+      ],
+      "kind": "concavity",
+      "weight": "27664/6561"
+    },
+    {
+      "args": [
+        3,
+        3
+      ],
+      "kind": "concavity",
+      "weight": "13832/2187"
+    },
+    {
+      "args": [
+        3,
+        4
+      ],
+      "kind": "concavity",
+      "weight": "96824/10935"
+    },
+    {
+      "args": [
+        3,
+        5
+      ],
+      "kind": "concavity",
+      "weight": "27664/3645"
+    },
+    {
+      "args": [
+        3,
+        6
+      ],
+      "kind": "concavity",
+      "weight": "13832/2187"
+    },
+    {
+      "args": [
+        3,
+        7
+      ],
+      "kind": "concavity",
+      "weight": "55328/10935"
+    },
+    {
+      "args": [
+        3,
+        8
+      ],
+      "kind": "concavity",
+      "weight": "13832/3645"
+    },
+    {
+      "args": [
+        3,
+        9
+      ],
+      "kind": "concavity",
+      "weight": "27664/10935"
+    },
+    {
+      "args": [
+        3,
+        10
+      ],
+      "kind": "concavity",
+      "weight": "13832/10935"
+    },
+    {
+      "args": [
+        4,
+        4
+      ],
+      "kind": "concavity",
+      "weight": "13832/3645"
+    },
+    {
+      "args": [
+        4,
+        5
+      ],
+      "kind": "concavity",
+      "weight": "4256/729"
+    },
+    {
+      "args": [
+        4,
+        6
+      ],
+      "kind": "concavity",
+      "weight": "2128/405"
+    },
+    {
+      "args": [
+        4,
+        7
+      ],
+      "kind": "concavity",
+      "weight": "17024/3645"
+    },
+    {
+      "args": [
+        4,
+        8
+      ],
+      "kind": "concavity",
+      "weight": "14896/3645"
+    },
+    {
+      "args": [
+        4,
+        9
+      ],
+      "kind": "concavity",
+      "weight": "4256/1215"
+    },
+    {
+      "args": [
+        4,
+        10
+      ],
+      "kind": "concavity",
+      "weight": "2128/729"
+    },
+    {
+      "args": [
+        4,
+        11
+      ],
+      "kind": "concavity",
+      "weight": "8512/3645"
+    },
+    {
+      "args": [
+        4,
+        12
+      ],
+      "kind": "concavity",
+      "weight": "2128/1215"
+    },
+    {
+      "args": [
+        4,
+        13
+      ],
+      "kind": "concavity",
+      "weight": "4256/3645"
+    },
+    {
+      "args": [
+        4,
+        14
+      ],
+      "kind": "concavity",
+      "weight": "2128/3645"
+    },
+    {
+      "args": [
+        5,
+        5
+      ],
+      "kind": "concavity",
+      "weight": "1064/405"
+    },
+    {
+      "args": [
+        5,
+        6
+      ],
+      "kind": "concavity",
+      "weight": "1729/405"
+    },
+    {
+      "args": [
+        5,
+        7
+      ],
+      "kind": "concavity",
+      "weight": "532/135"
+    },
+    {
+      "args": [
+        5,
+        8
+      ],
+      "kind": "concavity",
+      "weight": "1463/405"
+    },
+    {
+      "args": [
+        5,
+        9
+      ],
+      "kind": "concavity",
+      "weight": "266/81"
+    },
+    {
+      "args": [
+        5,
+        10
+      ],
+      "kind": "concavity",
+      "weight": "133/45"
+    },
+    {
+      "args": [
+        5,
+        11
+      ],
+      "kind": "concavity",
+      "weight": "1064/405"
+    },
+    {
+      "args": [
+        5,
+        12
+      ],
+      "kind": "concavity",
+      "weight": "931/405"
+    },
+    {
+      "args": [
+        5,
+        13
+      ],
+      "kind": "concavity",
+      "weight": "266/135"
+    },
+    {
+      "args": [
+        5,
+        14
+      ],
+      "kind": "concavity",
+      "weight": "133/81"
+    },
+    {
+      "args": [
+        5,
+        15
+      ],
+      "kind": "concavity",
+      "weight": "532/405"
+    },
+    {
+      "args": [
+        5,
+        16
+      ],
+      "kind": "concavity",
+      "weight": "133/135"
+    },
+    {
+      "args": [
+        5,
+        17
+      ],
+      "kind": "concavity",
+      "weight": "266/405"
+    },
+    {
+      "args": [
+        5,
+        18
+      ],
+      "kind": "concavity",
+      "weight": "133/405"
+    },
+    {
+      "args": [
+        6,
+        6
+      ],
+      "kind": "concavity",
+      "weight": "266/135"
+    },
+    {
+      "args": [
+        6,
+        7
+      ],
+      "kind": "concavity",
+      "weight": "448/135"
+    },
+    {
+      "args": [
+        6,
+        8
+      ],
+      "kind": "concavity",
+      "weight": "28/9"
+    },
+    {
+      "args": [
+        6,
+        9
+      ],
+      "kind": "concavity",
+      "weight": "392/135"
+    },
+    {
+      "args": [
+        6,
+        10
+      ],
+      "kind": "concavity",
+      "weight": "364/135"
+    },
+    {
+      "args": [
+        6,
+        11
+      ],
+      "kind": "concavity",
+      "weight": "112/45"
+    },
+    {
+      "args": [
+        6,
+        12
+      ],
+      "kind": "concavity",
+      "weight": "308/135"
+    },
+    {
+      "args": [
+        6,
+        13
+      ],
+      "kind": "concavity",
+      "weight": "56/27"
+    },
+    {
+      "args": [
+        6,
+        14
+      ],
+      "kind": "concavity",
+      "weight": "28/15"
+    },
+    {
+      "args": [
+        6,
+        15
+      ],
+      "kind": "concavity",
+      "weight": "224/135"
+    },
+    {
+      "args": [
+        6,
+        16
+      ],
+      "kind": "concavity",
+      "weight": "196/135"
+    },
+    {
+      "args": [
+        6,
+        17
+      ],
+      "kind": "concavity",
+      "weight": "56/45"
+    },
+    {
+      "args": [
+        6,
+        18
+      ],
+      "kind": "concavity",
+      "weight": "28/27"
+    },
+    {
+      "args": [
+        6,
+        19
+      ],
+      "kind": "concavity",
+      "weight": "112/135"
+    },
+    {
+      "args": [
+        6,
+        20
+      ],
+      "kind": "concavity",
+      "weight": "28/45"
+    },
+    {
+      "args": [
+        6,
+        21
+      ],
+      "kind": "concavity",
+      "weight": "56/135"
+    },
+    {
+      "args": [
+        6,
+        22
+      ],
+      "kind": "concavity",
+      "weight": "28/135"
+    },
+    {
+      "args": [
+        7,
+        7
+      ],
+      "kind": "concavity",
+      "weight": "14/9"
+    },
+    {
+      "args": [
+        7,
+        8
+      ],
+      "kind": "concavity",
+      "weight": "491/180"
+    },
+    {
+      "args": [
+        7,
+        9
+      ],
+      "kind": "concavity",
+      "weight": "15/4"
+    },
+    {
+      "args": [
+        7,
+        10
+      ],
+      "kind": "concavity",
+      "weight": "208/45"
+    },
+    {
+      "args": [
+        7,
+        11
+      ],
+      "kind": "concavity",
+      "weight": "481/90"
+    },
+    {
+      "args": [
+        7,
+        12
+      ],
+      "kind": "concavity",
+      "weight": "76/15"
+    },
+    {
+      "args": [
+        7,
+        13
+      ],
+      "kind": "concavity",
+      "weight": "431/90"
+    },
+    {
+      "args": [
+        7,
+        14
+      ],
+      "kind": "concavity",
+      "weight": "203/45"
+    },
+    {
+      "args": [
+        7,
+        15
+      ],
+      "kind": "concavity",
+      "weight": "127/30"
+    },
+    {
+      "args": [
+        7,
+        16
+      ],
+      "kind": "concavity",
+      "weight": "178/45"
+    },
+    {
+      "args": [
+        7,
+        17
+      ],
+      "kind": "concavity",
+      "weight": "331/90"
+    },
+    {
+      "args": [
+        7,
+        18
+      ],
+      "kind": "concavity",
+      "weight": "17/5"
+    },
+    {
+      "args": [
+        7,
+        19
+      ],
+      "kind": "concavity",
+      "weight": "281/90"
+    },
+    {
+      "args": [
+        7,
+        20
+      ],
+      "kind": "concavity",
+      "weight": "128/45"
+    },
+    {
+      "args": [
+        7,
+        21
+      ],
+      "kind": "concavity",
+      "weight": "77/30"
+    },
+    {
+      "args": [
+        7,
+        22
+      ],
+      "kind": "concavity",
+      "weight": "103/45"
+    },
+    {
+      "args": [
+        7,
+        23
+      ],
+      "kind": "concavity",
+      "weight": "181/90"
+    },
+    {
+      "args": [
+        7,
+        24
+      ],
+      "kind": "concavity",
+      "weight": "26/15"
+    },
+    {
+      "args": [
+        7,
+        25
+      ],
+      "kind": "concavity",
+      "weight": "131/90"
+    },
+    {
+      "args": [
+        7,
+        26
+      ],
+      "kind": "concavity",
+      "weight": "53/45"
+    },
+    {
+      "args": [
+        7,
+        27
+      ],
+      "kind": "concavity",
+      "weight": "9/10"
+    },
+    {
+      "args": [
+        7,
+        28
+      ],
+      "kind": "concavity",
+      "weight": "3/4"
+    },
+    {
+      "args": [
+        7,
+        29
+      ],
+      "kind": "concavity",
+      "weight": "3/5"
+    },
+    {
+      "args": [
+        7,
+        30
+      ],
+      "kind": "concavity",
+      "weight": "9/20"
+    },
+    {
+      "args": [
+        7,
+        31
+      ],
+      "kind": "concavity",
+      "weight": "7/20"
+    },
+    {
+      "args": [
+        7,
+        32
+      ],
+      "kind": "concavity",
+      "weight": "1/4"
+    },
+    {
+      "args": [
+        7,
+        33
+      ],
+      "kind": "concavity",
+      "weight": "3/20"
+    },
+    {
+      "args": [
+        7,
+        34
+      ],
+      "kind": "concavity",
+      "weight": "1/10"
+    },
+    {
+      "args": [
+        7,
+        35
+      ],
+      "kind": "concavity",
+      "weight": "1/20"
+    },
+    {
+      "args": [
+        1,
+        1
+      ],
+      "kind": "tripling",
+      "weight": "48412/6561"
+    },
+    {
+      "args": [
+        2,
+        2
+      ],
+      "kind": "tripling",
+      "weight": "27664/6561"
+    },
+    {
+      "args": [
+        3,
+        3
+      ],
+      "kind": "tripling",
+      "weight": "13832/10935"
+    },
+    {
+      "args": [
+        4,
+        4
+      ],
+      "kind": "tripling",
+      "weight": "2128/3645"
+    },
+    {
+      "args": [
+        5,
+        5
+      ],
+      "kind": "tripling",
+      "weight": "133/405"
+    },
+    {
+      "args": [
+        6,
+        6
+      ],
+      "kind": "tripling",
+      "weight": "28/135"
+    },
+    {
+      "args": [
+        7,
+        7
+      ],
+      "kind": "tripling",
+      "weight": "23/180"
+    },
+    {
+      "args": [
+        7,
+        8
+      ],
+      "kind": "tripling",
+      "weight": "1/20"
+    },
+    {
+      "args": [
+        7,
+        9
+      ],
+      "kind": "tripling",
+      "weight": "1/20"
+    },
+    {
+      "args": [
+        7,
+        10
+      ],
+      "kind": "tripling",
+      "weight": "1/20"
+    }
+  ],
+  "schema": "raw-profile-lower-bound-v1",
+  "target": {
+    "a": 7,
+    "b": 11,
+    "lower": "193648/6561"
+  }
+}
