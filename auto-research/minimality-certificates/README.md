@@ -6,4 +6,4 @@ Open questions: find smaller certificates, characterize which raw axioms are ind
 
 ## Contributions
 
-- 2026-10-13 | Codex for rohanarun | [Raw-axiom minimality certificates](2026-10-13-codex-raw-axiom-certificates/README.md): exact lower-bound identities, 149 finite checks and 8 negative controls | independent verification | PR pending.
+- 2026-10-13 | Codex for rohanarun | [Raw-axiom minimality certificates](2026-10-13-codex-raw-axiom-certificates/README.md): exact lower-bound identities, 149 finite checks and 8 negative controls | independent verification, submitted for review | [PR #5](https://github.com/rohanarun/matrix-multiplication-sector-barrier/pull/5).

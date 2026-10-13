@@ -79,6 +79,11 @@
     "repository": "https://github.com/openai/math"
   },
   "status": "independent verification",
+  "submission": {
+    "pr": 5,
+    "status": "submitted for review; not merged",
+    "url": "https://github.com/rohanarun/matrix-multiplication-sector-barrier/pull/5"
+  },
   "validation": {
     "baseline_tests_passed": 14,
     "certificate_checks_passed": 149,

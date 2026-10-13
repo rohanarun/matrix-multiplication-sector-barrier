@@ -32,3 +32,7 @@ Base commit: `0b09d3616da31d8750366747d7821d70ae6d1b90`. Branch: `research/seed7
 Review the three displayed coefficient identities and the checker's raw axiom definitions. Finite certificates are exact implications under the declared axioms; they are not formal verification of the full tensor theorem. Remaining external obligations are human review and maintainer acceptance. The upstream manuscript hash is inherited from the source manifest, not independently fetched in this run. There is no new omega bound and no realizability claim.
 
 Stop after packaging this one contribution. Further experiments are unnecessary to meet the current request; smaller certificates or axiom necessity are separate possible follow-ups. No delegated agents, paid services, intensive search or global artifact regeneration were used.
+
+## Submission
+
+[PR #5](https://github.com/rohanarun/matrix-multiplication-sector-barrier/pull/5) is submitted as independent verification. Implementation commit: `9c47b78` (the follow-up records this submission and refreshes the manifest). Main and overlap metadata were refreshed immediately before submission; no new competing claim was found. The local claim was updated once with the result and PR link. No merge was performed. CI status, if reported, must be checked at the final PR head; the local contribution verifier is not automatically included in the repository's existing root test workflow.
